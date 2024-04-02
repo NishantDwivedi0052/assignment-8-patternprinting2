@@ -1,0 +1,436 @@
+Q1  Print the following pattern
+    Input: n = 5
+    Output:
+            1 
+          1 2 3 
+        1 2 3 4 5 
+      1 2 3 4 5 6 7 
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"Enter rows : ";
+          cin>>n;
+          for(int i=1;i<=n;i++){
+              for(int j=1;j<=n-i;j++){// spaces
+                  cout<<"  ";
+              }
+              for(int j=1;j<=2*i-1;j++){// numbers
+                  cout<<j<<" ";
+              }
+              cout<<endl;
+          }
+      }
+Q2  Print the following pattern
+    Input: n = 4
+    Output:
+            A
+          A B C
+        A B C D E
+      A B C D E F G
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"Enter rows : ";
+          cin>>n;
+          for(int i=1;i<=n;i++){
+              for(int j=1;j<=n-i;j++){// spaces
+                  cout<<"  ";
+              }
+              for(int j=1;j<=2*i-1;j++){// numbers
+                  cout<<(char)(j+64)<<" ";
+              }
+              cout<<endl;
+          }
+      }
+Q3  Print the following pattern
+    Input: n = 4
+    Output:
+            A
+          B A B
+        C B A B C
+      D C B A B C D
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"Enter rows : ";
+          cin>>n;
+          for(int i=1;i<=n;i++){
+              for(int j=1;j<=n-i;j++){// spaces
+                  cout<<"  ";
+              }
+              for(int j=i;j>=1;j--){// numbers triangle decrease
+                  cout<<(char)(j+64)<<" ";
+              }
+              for(int j=2;j<=i;j++){// numbers triangle (2 se)
+                  cout<<(char)(j+64)<<" ";
+              }
+              cout<<endl;
+          }
+      }
+Q4  Print the following pattern
+    Input: n = 4
+    Output:
+          A B C D E F G
+          A B C   E F G
+          A B       F G
+          A           G
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"No of lines: ";
+          cin>>n;
+          //2n-1 stars
+          for(int i=1;i<=2*n-1;i++){
+              cout<<(char)(i+64)<<" ";
+          }
+          cout<<endl;
+          int m = n-1;//new lines
+          int nsp = 1;
+          for(int i=1;i<=m;i++){
+              //numbers
+              int a = 1;
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<(char)(a+64)<<" ";
+                  a++;
+              }
+              //spaces
+              for(int k=1;k<=nsp;k++){
+                  cout<<"  ";
+                  a++;
+              }
+              nsp+=2;
+              //numbers
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<(char)(a+64)<<" ";
+                  a++;
+              }
+              cout<<endl;
+      
+          }
+      }
+Q5  Print the following pattern
+    Input: n = 4
+    Output:
+          1 2 3 4 3 2 1
+          1 2 3   3 2 1
+          1 2       2 1
+          1           1
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"No of lines: ";
+          cin>>n;
+          //2n-1 stars
+          for(int i=1;i<=n;i++){
+              cout<<i<<" ";
+          }
+           for(int i=n-1;i>=1;i--){
+              cout<<i<<" ";
+          }
+          cout<<endl;
+          int m = n-1; //new lines
+          int nsp = 1;
+          for(int i=1;i<=m;i++){
+              //numbers
+              int a = 1;
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<a<<" ";
+                  a++;
+              }
+              //spaces
+              for(int k=1;k<=nsp;k++){
+                  cout<<"  ";
+                  a++;
+              }
+              nsp+=2;
+              //numbers
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<2*n-a<<" ";
+                  a++;
+              }
+              cout<<endl;
+      
+          }
+      }
+Q6  Print the following pattern
+    Input : n = 5
+    Output:
+          *               *
+            *           *
+              *       *
+                *   *
+                  *
+ANS - #include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cout<<"No of lines : ";
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){ // stars
+            if(i==j) cout<<"* ";
+            else cout<<"  ";
+        }
+        for(int j=1;j<=n-1;j++){ // stars
+            if(i+j==n) cout<<"* ";
+            else cout<<"  ";
+        }
+        cout<<endl;
+
+    }
+}
+Q7  Print the following pattern
+    Sample Input : m = 4, n = 6
+    Sample Output :
+                *       
+              *   *     
+            *       *   
+          *           * 
+            *       * 
+              *   *   
+                *     
+ANS - #include<iostream>
+      Using namespace std;
+      int main(){
+          int n;
+          cout<<"No of lines : ";
+          cin>>n;
+          for(int i=1;i<=n;i++){
+              for(int j=1;j<=n;j++){ // stars
+                  if(i+j==n+1) cout<<"* ";
+                  else cout<<"  ";
+              }
+              for(int j=1;j<=n-1;j++){ // stars
+                  if(j==i-1) cout<<"* ";
+                  else cout<<"  ";
+              }
+              cout<<endl;
+      
+          }
+          n--;
+          for(int i=1;i<=n;i++){
+              cout<<"  ";
+              for(int j=1;j<=n;j++){ // stars
+                  if(i==j) cout<<"* ";
+                  else cout<<"  ";
+              }
+              for(int j=1;j<=n-1;j++){ // stars
+                  if(i+j==n) cout<<"* ";
+                  else cout<<"  ";
+              }
+              cout<<endl;
+      
+          }
+      
+          
+      }
+Q8 Print the following pattern
+   Sample Input : n = 4
+   Output :
+            1
+          2    2
+        3        3
+      4            4
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"No of lines : ";
+          cin>>n;
+          for(int i=1;i<=n;i++){
+              for(int j=1;j<=n;j++){ // stars
+                  if(i+j==n+1) cout<<i<<"  ";
+                  else cout<<"  ";
+              }
+              for(int j=1;j<=n-1;j++){ // stars
+                  if(j==i-1) cout<<i<<"  ";
+                  else cout<<"  ";
+              }
+              cout<<endl;
+      
+          } 
+      }
+Q9  Print the following pattern
+    Sample Input : n = 5
+    Output :
+              *
+            * * *
+          *   *   *
+        *     *     *
+      * * * * * * * * *
+        *     *     *
+          *   *   *
+            * * *
+              *
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"No of lines : ";
+          cin>>n;
+          for(int i=1;i<=n;i++){
+              for(int j=1;j<=n;j++){ // stars
+                  if(i+j==n+1) cout<<"* ";
+                  else if(j==n || i==n) cout<<"* ";
+                  else cout<<"  ";
+              }
+              for(int j=1;j<=n-1;j++){ // stars
+                  if(j==i-1) cout<<"* ";
+                  else if(i==n) cout<<"* ";
+                  else cout<<"  ";
+              }
+              cout<<endl;
+      
+          }
+          n--;
+          for(int i=1;i<=n;i++){
+              cout<<"  ";
+              for(int j=1;j<=n;j++){ // stars
+                  if(i==j) cout<<"* ";
+                  else if(j==n) cout<<"* ";
+                  else cout<<"  ";
+              }
+              for(int j=1;j<=n-1;j++){ // stars
+                  if(i+j==n) cout<<"* ";
+                  else cout<<"  ";
+              }
+              cout<<endl;
+          }
+      }
+Q10 Print the following pattern
+    Input : n = 4
+    Output :
+          *           *
+          * *       * *
+          * * *   * * *
+          * * * * * * *
+          * * * * * * *
+          * * *   * * *
+          * *       * * 
+          *           *
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"No of lines: ";
+          cin>>n;
+          
+          int m = n-1; //new lines
+          int nsp = 2*m-1;
+          for(int i=1;i<=m;i++){
+              //stars
+              for(int j=1;j<=i;j++){
+                  cout<<"* ";
+              }
+              //spaces
+              for(int k=1;k<=nsp;k++){
+                  cout<<"  ";
+              }
+              nsp-=2;
+              //stars
+              for(int j=1;j<=i;j++){
+                  cout<<"* ";
+              }
+              cout<<endl;
+      
+          }
+          //2n-1 stars
+          for(int i=1;i<=2*n-1;i++){
+              cout<<"* ";
+          }
+          cout<<endl;
+          //2n-1 stars
+          for(int i=1;i<=2*n-1;i++){
+              cout<<"* ";
+          }
+          cout<<endl;
+          nsp = 1;
+          for(int i=1;i<=m;i++){
+              //stars
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<"* ";
+              }
+              //spaces
+              for(int k=1;k<=nsp;k++){
+                  cout<<"  ";
+              }
+              nsp+=2;
+              //stars
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<"* ";
+              }
+              cout<<endl;
+      
+          }
+      }
+Q11 Print the following pattern
+    Input : n = 4
+    Output :
+          * * * * * * *
+          * * *   * * *
+          * *       * *
+          *           *
+          * *       * *
+          * * *   * * *
+          * * * * * * *
+ANS - #include<iostream>
+      using namespace std;
+      int main(){
+          int n;
+          cout<<"No of lines: ";
+          cin>>n;
+          int m = n-1; //new lines
+          //2n-1 stars
+          for(int i=1;i<=2*n-1;i++){
+              cout<<"* ";
+          }
+          cout<<endl;
+          int nsp = 1;
+          for(int i=1;i<=m-1;i++){
+              //stars
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<"* ";
+              }
+              //spaces
+              for(int k=1;k<=nsp;k++){
+                  cout<<"  ";
+              }
+              nsp+=2;
+              //stars
+              for(int j=1;j<=m+1-i;j++){
+                  cout<<"* ";
+              }
+              cout<<endl;
+      
+          }
+          nsp = 2*m-1;
+          for(int i=1;i<=m;i++){
+              //stars
+              for(int j=1;j<=i;j++){
+                  cout<<"* ";
+              }
+              //spaces
+              for(int k=1;k<=nsp;k++){
+                  cout<<"  ";
+              }
+              nsp-=2;
+              //stars
+              for(int j=1;j<=i;j++){
+                  cout<<"* ";
+              }
+              cout<<endl;
+      
+          }
+          
+          //2n-1 stars
+          for(int i=1;i<=2*n-1;i++){
+              cout<<"* ";
+          }
+          cout<<endl;
+          
+      }
